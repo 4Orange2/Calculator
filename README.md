@@ -1,1 +1,1 @@
-# This is a calculator which has a fractions addition
+# This is a calculator with many add-ons
