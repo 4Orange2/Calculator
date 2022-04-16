@@ -6,9 +6,9 @@ def get_list_frac(equation):
     index = 0
     fractions = []
     print("equation: {}".format(equation))
-    print("-------")
+    print("--")
     while index <= len(equation):
-        print("This is the index: {}".format(index))
+        #print("This is the index: {}".format(index))
         new_frac = str(equation[index])
         print(new_frac)
         fractions.append(new_frac)
@@ -154,7 +154,7 @@ def divide(numer, denom, index):
 def solve(equation):
   print("------")
   print("solve():")
-  for i in range(len(equation) // 2 + 1):
+  for i in range(len(equation) // 2):
     fractions = get_list_frac(equation)
     numers = separate_frac(fractions) # creates a list of numerators
     denoms = separate_frac(fractions, denom=True) # creates a list of denominators
@@ -175,13 +175,18 @@ def solve(equation):
       index += 1
     answer_list = answer.split(" ")
     print(answer_list)
-    if len(answer_list) > 2:
-      for a in range(2):
-          answer_list.pop()
+    for a in range(2):
+        answer_list.pop()
+    print("wassup, {}".format(answer_list))
+    if len(answer_list) > 1:
       solve(answer_list)
-      print(answer_list)
-    final = answer_list
+    elif len(answer_list) == 1:
+      global final
+      final = answer_list
+      print("hi")
+      break
   return final
 
 equation = (input("Type the equation here: ").split(" "))
-print(solve(equation))
+print("------")
+print("final answer: {}".format(solve(equation)))
